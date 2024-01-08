@@ -7,12 +7,17 @@ RESOURCE_GROUP_NAME = 'zep-resource-group'
 CONTAINER_GROUP_NAME = 'zep-continst'
 ACTION = 'Start'  # Change to 'Stop' to stop the container
 
+print("Start appl")
+
 # Authenticate using the Azure Automation Run As account or Managed Identity
 credential = DefaultAzureCredential()
+print("got credentials")
 subscription_id = 'c1b6f5f6-8d55-4b87-b621-49a0c0a22c2b'  # replace with your subscription ID
 
 # Create a client
 client = ContainerInstanceManagementClient(credential, subscription_id)
+
+print("created client")
 
 # Function to start the container group
 def start_container_group():
